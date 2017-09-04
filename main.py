@@ -18,8 +18,8 @@ else:
 
 
 KEEP_PROB_RATE = 0.5
-LEARNING_RATE = 0.0005
-EPOCHS = 5
+LEARNING_RATE = 1e-4
+EPOCHS = 15
 BATCH_SIZE = 8
 
 def load_vgg(sess, vgg_path):
@@ -186,14 +186,17 @@ def run():
 
         layer_out = layers(layer3_out, layer4_out, layer7_out, num_classes)
         logits, training_op, cross_entropy_loss = optimize(layer_out, correct_label, learning_rate, num_classes)
+        saver = tf.train.Saver()
         # TODO: Train NN using the train_nn function
         sess.run( tf.global_variables_initializer())
 
         train_nn(sess, EPOCHS, BATCH_SIZE, get_batches_fn, training_op, cross_entropy_loss, image_input,
                  correct_label, keep_prob, learning_rate)
+        saver.save(sess, './vgg16_ss')
+        print("Model saved")
         # TODO: Save inference data using helper.save_inference_samples
         helper.save_inference_samples(runs_dir, data_dir, sess, image_shape, logits, keep_prob, image_input)
-
+        
         # OPTIONAL: Apply the trained model to a video
 
 
