@@ -32,5 +32,42 @@ python main.py
  - `project_tests.py`
  - Newest inference images from `runs` folder
  
- ## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+ ## AWS for Training
+ 1. Use Spot Instance
+    * EC2 Dashboard -> Spot Request -> Request Spot Instances
+    * Create new key pair-> key pair name: carnd1
+    * Create new security group": 
+       security group name: jupyter 
+       inbound: ssh, port 22
+       custom tcp: port 8888
+    * AMI : "Select", search community AMIs: 	udacity-carnd-advanced-deep-learning
+    * Instance Type: "Select": "Instance Type": GPU instances: g34xlarge
+    * "Next"
+    * Set Keypair and role: -> key pair name: carnd1
+    * Manage Firewall rules: -> jupyter
+    * "Review"
+    * "Launch"
+ 2. Connect AWS Instance
+    * EC2 Dashboard -> Instances
+    * Right click the instance: "connect"
+    * copy the connection string
+    * In terminal:
+       ssh -i "carnd1.pem" ubuntu@ec2-xxx-xxx-xxx-xxx.us-west-1.compute.amazonaws.com -L 8888:127.0.0.1:8888
+       # clone the project
+       git clone https://github.com/MichaelTien8901/CarND-Semantic-Segmentation.git
+       cd CarND-Semantic-Sementation
+       jupyter notebook
+       
+    * Now use browser to open 127.0.0.1:8888 for jupyter notebook. We can then use it to editor python files.
+    * Run program. In another terminal, 
+      ssh -i "carnd1.pem" ubuntu@ec2-xxx-xxx-xxx-xxx.us-west-1.compute.amazonaws.com
+      
+      cd CarND-Semantic-Sementation
+      python main.py
+      
+       
+       
+    
+ 
+    
+ 
