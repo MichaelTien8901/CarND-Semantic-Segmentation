@@ -53,7 +53,7 @@ python main.py
     * copy the connection string
     * In terminal:
        ssh -i "carnd1.pem" ubuntu@ec2-xxx-xxx-xxx-xxx.us-west-1.compute.amazonaws.com -L 8888:127.0.0.1:8888
-       # clone the project
+       
        git clone https://github.com/MichaelTien8901/CarND-Semantic-Segmentation.git
        cd CarND-Semantic-Sementation
        jupyter notebook
