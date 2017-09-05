@@ -23,16 +23,10 @@ python main.py
 ```
 **Note** If running this in Jupyter Notebook system messages, such as those regarding test status, may appear in the terminal rather than the notebook.
 
-### Submission
-1. Ensure you've passed all the unit tests.
-2. Ensure you pass all points on [the rubric](https://review.udacity.com/#!/rubrics/989/view).
-3. Submit the following in a zip file.
- - `helper.py`
- - `main.py`
- - `project_tests.py`
- - Newest inference images from `runs` folder
+#### Re-train
+Save the model and checkpoint after first training.  Write a retrain function to continue previous training. 
  
- ## AWS for Training
+### AWS for Training
  1. Use Spot Instance
     * EC2 Dashboard -> Spot Request -> Request Spot Instances
     * Create new key pair-> key pair name: carnd1
@@ -58,8 +52,8 @@ python main.py
        cd CarND-Semantic-Sementation
        jupyter notebook
        
-    * Now use browser to open 127.0.0.1:8888 for jupyter notebook. We can then use it to editor python files.
-    * Run program. In another terminal, 
+    * Now use browser to open 127.0.0.1:8888 for jupyter notebook. We can then use it to edit files.
+    * Run program in another terminal, 
       ssh -i "carnd1.pem" ubuntu@ec2-xxx-xxx-xxx-xxx.us-west-1.compute.amazonaws.com
       
       cd CarND-Semantic-Sementation
